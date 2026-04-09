@@ -1,0 +1,83 @@
+{
+  "version": 2,
+  "providers": {
+    "gemini": {
+      "default": "gemini-3-flash-preview",
+      "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "pricing_fetch_url": "https://ai.google.dev/gemini-api/docs/pricing.md.txt",
+      "max_output_tokens": {
+        "gemini-3.1-pro-preview": 65536,
+        "gemini-3-flash-preview": 65536,
+        "gemini-3.1-flash-lite-preview": 65536,
+        "gemini-2.5-pro": 65536,
+        "gemini-2.5-flash": 65536,
+        "gemini-2.5-flash-lite": 65536
+      },
+      "models": [
+        "gemini-3.1-pro-preview",
+        "gemini-3-flash-preview",
+        "gemini-3.1-flash-lite-preview",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ]
+    },
+    "anthropic": {
+      "default": "claude-haiku-4-5-20251001",
+      "pricing_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+      "pricing_fetch_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "max_output_tokens": {
+        "claude-opus-4-6": 128000,
+        "claude-sonnet-4-6": 64000,
+        "claude-haiku-4-5-20251001": 64000
+      },
+      "models": [
+        "claude-opus-4-6",
+        "claude-sonnet-4-6",
+        "claude-haiku-4-5-20251001"
+      ]
+    },
+    "openai": {
+      "default": "gpt-4.1-mini",
+      "pricing_url": "https://platform.openai.com/docs/pricing",
+      "pricing_fetch_url": "https://developers.openai.com/api/docs/pricing",
+      "max_output_tokens": {
+        "gpt-5.4": 128000,
+        "gpt-5.4-mini": 128000,
+        "gpt-5.4-nano": 128000,
+        "gpt-4.1": 32768,
+        "gpt-4.1-mini": 32768,
+        "gpt-4.1-nano": 32768,
+        "gpt-4o": 16384,
+        "gpt-4o-mini": 16384,
+        "o4-mini": 100000,
+        "o3": 100000,
+        "o3-mini": 100000
+      },
+      "models": [
+        "gpt-5.4",
+        "gpt-5.4-mini",
+        "gpt-5.4-nano",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano",
+        "gpt-4o",
+        "gpt-4o-mini",
+        "o4-mini",
+        "o3",
+        "o3-mini"
+      ]
+    },
+    "openrouter": {
+      "default": "meta-llama/llama-3.3-70b-instruct",
+      "pricing_url": "https://openrouter.ai/models",
+      "api_endpoints": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "models_user": "/models/user",
+        "models_global": "/models",
+        "model_endpoints": "/models/{slug}/endpoints",
+        "auth_check": "/auth/key"
+      }
+    }
+  }
+}

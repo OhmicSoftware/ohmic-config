@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "signup_urls": {
+    "gemini": "https://aistudio.google.com/",
+    "anthropic": "https://console.anthropic.com/",
+    "openai": "https://platform.openai.com/api-keys"
+  },
+  "discord": "https://discord.com/channels/1477690520544350269/1478174801276174366",
+  "system_prompt_links": {
+    "ableton_help": "https://www.ableton.com/en/help/",
+    "ableton_manual": "https://www.ableton.com/en/live-manual/12/",
+    "ableton_learn": "https://www.ableton.com/en/live/learn-live/"
+  }
+}
