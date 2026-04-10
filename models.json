@@ -1,8 +1,10 @@
 {
-  "version": 2,
+  "version": 3,
   "providers": {
     "gemini": {
       "default": "gemini-3-flash-preview",
+      "signup_url": "https://aistudio.google.com/",
+      "api_key_validation": "https://generativelanguage.googleapis.com/v1/models",
       "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing",
       "pricing_fetch_url": "https://ai.google.dev/gemini-api/docs/pricing.md.txt",
       "max_output_tokens": {
@@ -24,6 +26,8 @@
     },
     "anthropic": {
       "default": "claude-haiku-4-5-20251001",
+      "signup_url": "https://console.anthropic.com/",
+      "api_key_validation": "https://api.anthropic.com/v1/models",
       "pricing_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "pricing_fetch_url": "https://platform.claude.com/docs/en/about-claude/pricing",
       "max_output_tokens": {
@@ -39,6 +43,8 @@
     },
     "openai": {
       "default": "gpt-4.1-mini",
+      "signup_url": "https://platform.openai.com/api-keys",
+      "api_key_validation": "https://api.openai.com/v1/models",
       "pricing_url": "https://platform.openai.com/docs/pricing",
       "pricing_fetch_url": "https://developers.openai.com/api/docs/pricing",
       "max_output_tokens": {
@@ -70,6 +76,8 @@
     },
     "openrouter": {
       "default": "meta-llama/llama-3.3-70b-instruct",
+      "signup_url": "https://openrouter.ai/keys",
+      "api_key_validation": "https://openrouter.ai/api/v1/models",
       "pricing_url": "https://openrouter.ai/models",
       "api_endpoints": {
         "base_url": "https://openrouter.ai/api/v1",
