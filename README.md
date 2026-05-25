@@ -11,11 +11,13 @@ The Ohmic app fetches these configuration files on startup (after EULA acceptanc
 | `models.json` | LLM provider/model registry, pricing URLs, default models, max output tokens |
 | `alpha.json` | Alpha build kill switch and minimum version gate |
 | `endpoints.json` | API key validation endpoints and pricing fallback URLs |
-| `links.json` | User-facing browser links and system prompt resource links |
+| `links.json` | User-facing browser links |
+| `system_prompt_links.json` | System prompt resource links |
+| `mcp_access.json` | MCP Access client setup templates and compatibility pins |
 
 ## How it works
 
-- Ohmic fetches all four files in parallel on launch (after EULA acceptance)
+- Ohmic fetches the cacheable config files in parallel on launch (after EULA acceptance)
 - If any fetch fails (offline, GitHub down, etc.), the app falls back to its built-in defaults
 - No data leaves the user's machine until the EULA is accepted
 

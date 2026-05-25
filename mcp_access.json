@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "defaults": {
+    "protocol_version": "2025-11-25",
+    "mcp_remote_package": "mcp-remote@0.1.38"
+  },
+  "templates": {
+    "codex": "[mcp_servers.ohmic]\nurl = \"{{ endpoint }}\"\nhttp_headers = { Authorization = \"Bearer {{ token }}\", \"MCP-Protocol-Version\" = \"{{ protocol_version }}\" }\ndefault_tools_approval_mode = \"prompt\"\n",
+    "claude": "{\n  \"mcpServers\": {\n    \"ohmic\": {\n      \"type\": \"http\",\n      \"url\": \"{{ endpoint }}\",\n      \"headers\": {\n        \"Authorization\": \"Bearer {{ token }}\",\n        \"MCP-Protocol-Version\": \"{{ protocol_version }}\"\n      }\n    }\n  }\n}\n",
+    "claude_desktop": "{\n  \"mcpServers\": {\n    \"ohmic\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"-y\",\n        \"{{ mcp_remote_package }}\",\n        \"{{ endpoint }}\",\n        \"--allow-http\",\n        \"--transport\",\n        \"http-only\",\n        \"--header\",\n        \"Authorization:${OHMIC_MCP_AUTH_HEADER}\",\n        \"--header\",\n        \"MCP-Protocol-Version:{{ protocol_version }}\"\n      ],\n      \"env\": {\n        \"OHMIC_MCP_AUTH_HEADER\": \"Bearer {{ token }}\"\n      }\n    }\n  }\n}\n",
+    "manual": "Endpoint: {{ endpoint }}\nTransport: Streamable HTTP\nAuthorization: Bearer {{ token }}\nMCP-Protocol-Version: {{ protocol_version }}\n"
+  }
+}
