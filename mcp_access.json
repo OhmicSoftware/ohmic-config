@@ -4,6 +4,10 @@
     "protocol_version": "2025-11-25",
     "mcp_remote_package": "mcp-remote@0.1.38"
   },
+  "skill": {
+    "path": "skills/ohmic-mcp/SKILL.md",
+    "copy_label": "Copy Skill Instructions"
+  },
   "templates": {
     "codex": "[mcp_servers.ohmic]\nurl = \"{{ endpoint }}\"\nhttp_headers = { Authorization = \"Bearer {{ token }}\", \"MCP-Protocol-Version\" = \"{{ protocol_version }}\" }\ndefault_tools_approval_mode = \"prompt\"\n",
     "claude": "{\n  \"mcpServers\": {\n    \"ohmic\": {\n      \"type\": \"http\",\n      \"url\": \"{{ endpoint }}\",\n      \"headers\": {\n        \"Authorization\": \"Bearer {{ token }}\",\n        \"MCP-Protocol-Version\": \"{{ protocol_version }}\"\n      }\n    }\n  }\n}\n",
