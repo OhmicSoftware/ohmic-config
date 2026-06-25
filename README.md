@@ -8,7 +8,7 @@ The Ohmic app fetches these configuration files on startup (after EULA acceptanc
 
 | File | Purpose |
 |------|---------|
-| `models.json` | LLM provider/model registry, pricing URLs, default models, max output tokens |
+| `models.json` | LLM provider/model registry, default models, max output tokens |
 | `alpha.json` | Alpha build kill switch and minimum version gate |
 | `endpoints.json` | API key validation endpoints and pricing fallback URLs |
 | `links.json` | User-facing browser links |

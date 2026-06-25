@@ -2,10 +2,9 @@
   "version": 1,
   "providers": {
     "gemini": {
-      "default": "gemini-3-flash-preview",
+      "default": "gemini-3.5-flash",
       "signup_url": "https://aistudio.google.com/",
       "api_key_validation": "https://generativelanguage.googleapis.com/v1/models",
-      "pricing_url": "https://ai.google.dev/gemini-api/docs/pricing",
       "max_output_tokens": {
         "gemini-3.1-pro-preview": 65536,
         "gemini-3.5-flash": 65536,
@@ -15,16 +14,6 @@
         "gemini-2.5-pro": 65536,
         "gemini-2.5-flash": 65536,
         "gemini-2.5-flash-lite": 65536
-      },
-      "pricing": {
-        "gemini-3.1-pro-preview": { "input": 4.00, "output": 18.00 },
-        "gemini-3.5-flash": { "input": 1.50, "output": 9.00 },
-        "gemini-3-flash-preview": { "input": 0.50, "output": 3.00 },
-        "gemini-3.1-flash-lite": { "input": 0.25, "output": 1.50 },
-        "gemini-3.1-flash-lite-preview": { "input": 0.25, "output": 1.50 },
-        "gemini-2.5-pro": { "input": 2.50, "output": 15.00 },
-        "gemini-2.5-flash": { "input": 0.30, "output": 2.50 },
-        "gemini-2.5-flash-lite": { "input": 0.10, "output": 0.40 }
       },
       "models": [
         "gemini-3.1-pro-preview",
@@ -41,20 +30,17 @@
       "default": "claude-haiku-4-5-20251001",
       "signup_url": "https://console.anthropic.com/",
       "api_key_validation": "https://api.anthropic.com/v1/models",
-      "pricing_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
       "max_output_tokens": {
+        "claude-fable-5": 128000,
+        "claude-opus-4-8": 128000,
         "claude-opus-4-7": 128000,
         "claude-opus-4-6": 128000,
         "claude-sonnet-4-6": 64000,
         "claude-haiku-4-5-20251001": 64000
       },
-      "pricing": {
-        "claude-opus-4-7": { "input": 5.00, "output": 25.00 },
-        "claude-opus-4-6": { "input": 5.00, "output": 25.00 },
-        "claude-sonnet-4-6": { "input": 3.00, "output": 15.00 },
-        "claude-haiku-4-5-20251001": { "input": 1.00, "output": 5.00 }
-      },
       "models": [
+        "claude-fable-5",
+        "claude-opus-4-8",
         "claude-opus-4-7",
         "claude-opus-4-6",
         "claude-sonnet-4-6",
@@ -65,34 +51,13 @@
       "default": "gpt-4.1-mini",
       "signup_url": "https://platform.openai.com/api-keys",
       "api_key_validation": "https://api.openai.com/v1/models",
-      "pricing_url": "https://platform.openai.com/docs/pricing",
       "max_output_tokens": {
         "gpt-5.5": 128000,
         "gpt-5.4": 128000,
         "gpt-5.4-mini": 128000,
         "gpt-5.4-nano": 128000,
         "gpt-4.1": 32768,
-        "gpt-4.1-mini": 32768,
-        "gpt-4.1-nano": 32768,
-        "gpt-4o": 16384,
-        "gpt-4o-mini": 16384,
-        "o4-mini": 100000,
-        "o3": 100000,
-        "o3-mini": 100000
-      },
-      "pricing": {
-        "gpt-5.5": { "input": 10.00, "output": 45.00 },
-        "gpt-5.4": { "input": 5.00, "output": 22.50 },
-        "gpt-5.4-mini": { "input": 0.75, "output": 4.50 },
-        "gpt-5.4-nano": { "input": 0.20, "output": 1.25 },
-        "gpt-4.1": { "input": 2.00, "output": 8.00 },
-        "gpt-4.1-mini": { "input": 0.40, "output": 1.60 },
-        "gpt-4.1-nano": { "input": 0.10, "output": 0.40 },
-        "gpt-4o": { "input": 2.50, "output": 10.00 },
-        "gpt-4o-mini": { "input": 0.15, "output": 0.60 },
-        "o4-mini": { "input": 1.10, "output": 4.40 },
-        "o3": { "input": 2.00, "output": 8.00 },
-        "o3-mini": { "input": 1.10, "output": 4.40 }
+        "gpt-4.1-mini": 32768
       },
       "models": [
         "gpt-5.5",
@@ -100,20 +65,13 @@
         "gpt-5.4-mini",
         "gpt-5.4-nano",
         "gpt-4.1",
-        "gpt-4.1-mini",
-        "gpt-4.1-nano",
-        "gpt-4o",
-        "gpt-4o-mini",
-        "o4-mini",
-        "o3",
-        "o3-mini"
+        "gpt-4.1-mini"
       ]
     },
     "openrouter": {
       "default": "meta-llama/llama-3.3-70b-instruct",
       "signup_url": "https://openrouter.ai/keys",
       "api_key_validation": "https://openrouter.ai/api/v1/models",
-      "pricing_url": "https://openrouter.ai/models",
       "api_endpoints": {
         "base_url": "https://openrouter.ai/api/v1",
         "models_user": "/models/user",
