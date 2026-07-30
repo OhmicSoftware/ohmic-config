@@ -8,22 +8,18 @@
       "max_output_tokens": {
         "gemini-3.1-pro-preview": 65536,
         "gemini-3.5-flash": 65536,
+        "gemini-3.6-flash": 65536,
         "gemini-3-flash-preview": 65536,
-        "gemini-3.1-flash-lite": 65536,
-        "gemini-3.1-flash-lite-preview": 65536,
-        "gemini-2.5-pro": 65536,
-        "gemini-2.5-flash": 65536,
-        "gemini-2.5-flash-lite": 65536
+        "gemini-3.5-flash-lite": 65536,
+        "gemini-3.1-flash-lite": 65536
       },
       "models": [
         "gemini-3.1-pro-preview",
         "gemini-3.5-flash",
+        "gemini-3.6-flash",
         "gemini-3-flash-preview",
-        "gemini-3.1-flash-lite",
-        "gemini-3.1-flash-lite-preview",
-        "gemini-2.5-pro",
-        "gemini-2.5-flash",
-        "gemini-2.5-flash-lite"
+        "gemini-3.5-flash-lite",
+        "gemini-3.1-flash-lite"
       ]
     },
     "anthropic": {
@@ -32,17 +28,21 @@
       "api_key_validation": "https://api.anthropic.com/v1/models",
       "max_output_tokens": {
         "claude-fable-5": 128000,
+        "claude-opus-5": 128000,
         "claude-opus-4-8": 128000,
         "claude-opus-4-7": 128000,
         "claude-opus-4-6": 128000,
+        "claude-sonnet-5": 128000,
         "claude-sonnet-4-6": 64000,
         "claude-haiku-4-5-20251001": 64000
       },
       "models": [
         "claude-fable-5",
+        "claude-opus-5",
         "claude-opus-4-8",
         "claude-opus-4-7",
         "claude-opus-4-6",
+        "claude-sonnet-5",
         "claude-sonnet-4-6",
         "claude-haiku-4-5-20251001"
       ]
@@ -52,6 +52,9 @@
       "signup_url": "https://platform.openai.com/api-keys",
       "api_key_validation": "https://api.openai.com/v1/models",
       "max_output_tokens": {
+        "gpt-5.6-sol": 128000,
+        "gpt-5.6-terra": 128000,
+        "gpt-5.6-luna": 128000,
         "gpt-5.5": 128000,
         "gpt-5.4": 128000,
         "gpt-5.4-mini": 128000,
@@ -60,6 +63,9 @@
         "gpt-4.1-mini": 32768
       },
       "models": [
+        "gpt-5.6-sol",
+        "gpt-5.6-terra",
+        "gpt-5.6-luna",
         "gpt-5.5",
         "gpt-5.4",
         "gpt-5.4-mini",
