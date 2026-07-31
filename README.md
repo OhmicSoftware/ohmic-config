@@ -8,7 +8,7 @@ The Ohmic app fetches these configuration files on startup (after EULA acceptanc
 
 | File | Purpose |
 |------|---------|
-| `models.json` | LLM provider/model registry, default models, max output tokens |
+| `models.json` | Model registry, API adapters, defaults, reasoning options, and output limits |
 | `alpha.json` | Alpha build kill switch and minimum version gate |
 | `endpoints.json` | API key validation endpoints and pricing fallback URLs |
 | `links.json` | User-facing browser links |
@@ -25,16 +25,44 @@ The Ohmic app fetches these configuration files on startup (after EULA acceptanc
 
 Know about a new model that should be added? Open a PR!
 
-1. Edit `models.json`
-2. Add the model ID to the appropriate provider's `models` array
-3. Submit a pull request with the model name and a link to its documentation
+1. Edit `models.json`.
+2. Add the exact model ID as a key under the appropriate provider's `models` object.
+3. Select one of Ohmic's shipped adapters with `api`, set a positive `max_output_tokens`, and add validated `reasoning` metadata only when the provider documents it.
+4. Submit a pull request with links to the provider's official model and API documentation.
+
+### Model registry v2
+
+Static model records are keyed by exact provider model ID:
+
+```json
+"gpt-5.6-luna": {
+  "api": "responses",
+  "max_output_tokens": 128000,
+  "reasoning": {
+    "default": "none",
+    "options": ["none", "low", "medium", "high", "xhigh", "max"]
+  }
+}
+```
+
+Allowed `api` values are provider-specific:
+
+- OpenAI: `responses` or `chat_completions`
+- Anthropic: `messages`
+- Gemini: `generate_content`
+- OpenRouter: provider-level `chat_completions`; its model list remains dynamically discovered
+
+Configuration selects adapters already shipped in Ohmic. It cannot define executable behavior, request templates, imports, or arbitrary protocol implementations. A model using a new wire protocol requires an Ohmic release.
+
+The `v1` branch remains for legacy Ohmic builds. New builds using keyed records and adapter metadata fetch `models.json` from `v2`; do not add v2 fields to `v1`.
 
 ### Guidelines
 
-- Use the exact model ID as accepted by the provider's API
+- Use the exact model ID accepted by the provider's API and cite official provider documentation
 - Order models from most capable to most affordable
 - Only add models that support text generation (no image-only, audio-only, or embedding models)
-- Test that the model ID works before submitting
+- Do not add deprecated or shut-down models
+- Test the exact model ID and selected adapter before submitting
 
 ## License
 

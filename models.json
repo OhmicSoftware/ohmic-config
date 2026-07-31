@@ -1,81 +1,141 @@
 {
-  "version": 1,
+  "version": 2,
   "providers": {
     "gemini": {
       "default": "gemini-3.5-flash",
       "signup_url": "https://aistudio.google.com/",
       "api_key_validation": "https://generativelanguage.googleapis.com/v1/models",
-      "max_output_tokens": {
-        "gemini-3.1-pro-preview": 65536,
-        "gemini-3.5-flash": 65536,
-        "gemini-3.6-flash": 65536,
-        "gemini-3-flash-preview": 65536,
-        "gemini-3.5-flash-lite": 65536,
-        "gemini-3.1-flash-lite": 65536
-      },
-      "models": [
-        "gemini-3.1-pro-preview",
-        "gemini-3.5-flash",
-        "gemini-3.6-flash",
-        "gemini-3-flash-preview",
-        "gemini-3.5-flash-lite",
-        "gemini-3.1-flash-lite"
-      ]
+      "models": {
+        "gemini-3.1-pro-preview": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high"]}
+        },
+        "gemini-3.5-flash": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "medium", "options": ["minimal", "low", "medium", "high"]}
+        },
+        "gemini-3.6-flash": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "medium", "options": ["minimal", "low", "medium", "high"]}
+        },
+        "gemini-3-flash-preview": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "high", "options": ["minimal", "low", "medium", "high"]}
+        },
+        "gemini-3.5-flash-lite": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "minimal", "options": ["minimal", "low", "medium", "high"]}
+        },
+        "gemini-3.1-flash-lite": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "minimal", "options": ["minimal", "low", "medium", "high"]}
+        }
+      }
     },
     "anthropic": {
       "default": "claude-haiku-4-5-20251001",
       "signup_url": "https://console.anthropic.com/",
       "api_key_validation": "https://api.anthropic.com/v1/models",
-      "max_output_tokens": {
-        "claude-fable-5": 128000,
-        "claude-opus-5": 128000,
-        "claude-opus-4-8": 128000,
-        "claude-opus-4-7": 128000,
-        "claude-opus-4-6": 128000,
-        "claude-sonnet-5": 128000,
-        "claude-sonnet-4-6": 64000,
-        "claude-haiku-4-5-20251001": 64000
-      },
-      "models": [
-        "claude-fable-5",
-        "claude-opus-5",
-        "claude-opus-4-8",
-        "claude-opus-4-7",
-        "claude-opus-4-6",
-        "claude-sonnet-5",
-        "claude-sonnet-4-6",
-        "claude-haiku-4-5-20251001"
-      ]
+      "models": {
+        "claude-fable-5": {
+          "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "claude-opus-5": {
+          "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "claude-opus-4-8": {
+          "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "claude-opus-4-7": {
+          "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "claude-opus-4-6": {
+          "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "max"]}
+        },
+        "claude-sonnet-5": {
+          "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "claude-sonnet-4-6": {
+          "api": "messages",
+          "max_output_tokens": 64000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "max"]}
+        },
+        "claude-haiku-4-5-20251001": {
+          "api": "messages",
+          "max_output_tokens": 64000
+        }
+      }
     },
     "openai": {
       "default": "gpt-4.1-mini",
       "signup_url": "https://platform.openai.com/api-keys",
       "api_key_validation": "https://api.openai.com/v1/models",
-      "max_output_tokens": {
-        "gpt-5.6-sol": 128000,
-        "gpt-5.6-terra": 128000,
-        "gpt-5.6-luna": 128000,
-        "gpt-5.5": 128000,
-        "gpt-5.4": 128000,
-        "gpt-5.4-mini": 128000,
-        "gpt-5.4-nano": 128000,
-        "gpt-4.1": 32768,
-        "gpt-4.1-mini": 32768
-      },
-      "models": [
-        "gpt-5.6-sol",
-        "gpt-5.6-terra",
-        "gpt-5.6-luna",
-        "gpt-5.5",
-        "gpt-5.4",
-        "gpt-5.4-mini",
-        "gpt-5.4-nano",
-        "gpt-4.1",
-        "gpt-4.1-mini"
-      ]
+      "models": {
+        "gpt-5.6-sol": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh", "max"]}
+        },
+        "gpt-5.6-terra": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh", "max"]}
+        },
+        "gpt-5.6-luna": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh", "max"]}
+        },
+        "gpt-5.5": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "medium", "options": ["none", "low", "medium", "high", "xhigh"]}
+        },
+        "gpt-5.4": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh"]}
+        },
+        "gpt-5.4-mini": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh"]}
+        },
+        "gpt-5.4-nano": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh"]}
+        },
+        "gpt-4.1": {
+          "api": "responses",
+          "max_output_tokens": 32768
+        },
+        "gpt-4.1-mini": {
+          "api": "responses",
+          "max_output_tokens": 32768
+        }
+      }
     },
     "openrouter": {
-      "default": "meta-llama/llama-3.3-70b-instruct",
+      "api": "chat_completions",
       "signup_url": "https://openrouter.ai/keys",
       "api_key_validation": "https://openrouter.ai/api/v1/models",
       "api_endpoints": {
