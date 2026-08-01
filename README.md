@@ -17,9 +17,12 @@ The Ohmic app fetches these configuration files on startup (after EULA acceptanc
 
 ## How it works
 
-- Ohmic fetches the cacheable config files in parallel on launch (after EULA acceptance)
-- If any fetch fails (offline, GitHub down, etc.), the app falls back to its built-in defaults
-- No data leaves the user's machine until the EULA is accepted
+- Each Ohmic release selects one version branch as its complete release configuration bundle. Current builds use `v2`.
+- Ohmic fetches the cacheable files used by that release from the selected branch in parallel on launch (after EULA acceptance).
+- If any fetch fails (offline, GitHub down, etc.), the app falls back only to a valid cache from the same version branch, then to its built-in defaults.
+- Cache paths are version-scoped, so data from different release branches cannot be mixed.
+- `alpha.json` is the exception: alpha builds always fetch it live from `main` as an uncached emergency minimum-version gate.
+- No data leaves the user's machine until the EULA is accepted.
 
 ## Contributing
 
@@ -54,7 +57,7 @@ Allowed `api` values are provider-specific:
 
 Configuration selects adapters already shipped in Ohmic. It cannot define executable behavior, request templates, imports, or arbitrary protocol implementations. A model using a new wire protocol requires an Ohmic release.
 
-The `v1` branch remains for legacy Ohmic builds. New builds using keyed records and adapter metadata fetch `models.json` from `v2`; do not add v2 fields to `v1`.
+The `v1` branch remains for legacy Ohmic builds. The `v2` branch is a complete release bundle: builds targeting v2 read all release-scoped configuration from v2 instead of mixing files from different branches. Only `alpha.json` remains on `main`. Do not add v2 fields to `v1`. A future branch such as `v3` must carry the complete configuration bundle before an Ohmic release selects it.
 
 ### Guidelines
 
