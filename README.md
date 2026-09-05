@@ -51,11 +51,20 @@ Static model records are keyed by exact provider model ID:
 Allowed `api` values are provider-specific:
 
 - OpenAI: `responses` or `chat_completions`
-- Anthropic: `messages`
+- Anthropic: `messages` or `messages_bound_thinking`
 - Gemini: `generate_content`
 - OpenRouter: provider-level `chat_completions`; its model list remains dynamically discovered
 
 Configuration selects adapters already shipped in Ohmic. It cannot define executable behavior, request templates, imports, or arbitrary protocol implementations. A model using a new wire protocol requires an Ohmic release.
+
+`messages_bound_thinking` opts documented compatible models such as
+`claude-fable-5-1` into adaptive thinking with the fixed
+`thinking-binding-controls-2026-08-01` beta header and
+`block_binding.prefix_mismatch_behavior: drop_block`. Anthropic handles invalid
+thinking when context changes; Ohmic preserves conversation history and tool-result
+links. Ordinary `messages` and provider defaults stay unchanged. Older v2 Ohmic
+releases omit entries using this unknown adapter while retaining supported models.
+Future compatible models can select this shipped mode without model-name rules.
 
 The `v1` branch remains for legacy Ohmic builds. The `v2` branch is a complete release bundle: builds targeting v2 read all release-scoped configuration from v2 instead of mixing files from different branches. Only `alpha.json` remains on `main`. Do not add v2 fields to `v1`. A future branch such as `v3` must carry the complete configuration bundle before an Ohmic release selects it.
 

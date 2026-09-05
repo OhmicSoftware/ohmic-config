@@ -43,6 +43,11 @@
       "signup_url": "https://console.anthropic.com/",
       "api_key_validation": "https://api.anthropic.com/v1/models",
       "models": {
+        "claude-fable-5-1": {
+          "api": "messages_bound_thinking",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
         "claude-fable-5": {
           "api": "messages",
           "max_output_tokens": 128000,
@@ -89,6 +94,11 @@
       "signup_url": "https://platform.openai.com/api-keys",
       "api_key_validation": "https://api.openai.com/v1/models",
       "models": {
+        "gpt-6-astra": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "low", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
         "gpt-5.6-sol": {
           "api": "responses",
           "max_output_tokens": 128000,
