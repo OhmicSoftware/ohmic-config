@@ -1,6 +1,6 @@
 ---
 name: ohmic-mcp
-description: Use when an agent is connected to Ohmic MCP Access to control Ableton Live, inspect Session or Arrangement state, resolve Ohmic refs, write MIDI, edit clips/tracks/scenes, load devices, or recover from Ohmic MCP tool errors.
+description: Use when an agent is connected to Ohmic MCP Access to control Ableton Live, inspect Session or Arrangement state, resolve Ohmic refs, search for instruments or presets by sound, write MIDI, edit clips/tracks/scenes, load devices, or recover from Ohmic MCP tool errors.
 ---
 
 # Ohmic MCP Access
@@ -49,6 +49,16 @@ When adding a few notes to an existing clip, use `ohmic_edit_clip` with `operati
 Use `ohmic_edit_track`, `ohmic_edit_clip`, and `ohmic_edit_scene` only with refs created for `intent: "edit"`. Use `ohmic_search_devices`, `ohmic_get_device_chain`, `ohmic_preview_device_chain_change`, and `ohmic_apply_device_chain_preview` for device workflows. Preview device-chain edits before applying them when a preview tool is available.
 
 Before applying a mutating tool, make the target and likely effect clear in your own reasoning. Ohmic may request confirmation from the user before writes; if it does, surface the concise confirmation question instead of trying alternate write tools.
+
+## Finding Instruments And Devices
+
+When the user asks for an instrument, preset, or device by character or style ("something good for ambient", "a dark bass", "a Vangelis-style pad"), call `ohmic_search_devices` with the descriptive words before answering. Ohmic indexes device names, preset paths, and the Assistant notes the user wrote in the Instruments Browser, so "ambient" can match a preset whose name does not contain that word. Do not answer from track names or loaded device chains alone; those never see the user's notes.
+
+- Search the user's own words first, then one or two close synonyms such as `pad`, `drone`, or `texture`. An empty result means no approved device is named or tagged that way.
+- Leave `category` unset unless the user named a type. Ohmic falls back across categories when the requested one has no match.
+- Results return the device name and a `device_load` ref, not the note text. Report the match; do not quote a note you did not see.
+- Load only with the ref from the search result via `ohmic_load_device`. Never build a device path by hand.
+- Only devices checked in the Instruments Browser are visible. If nothing matches, say so and suggest approving or annotating devices there.
 
 ## Error Recovery
 
