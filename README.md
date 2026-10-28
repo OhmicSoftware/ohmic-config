@@ -10,12 +10,11 @@ Current Ohmic builds read one signed file, `config-release.json`, after startup.
 |------|---------|
 | `config-release.json` | Signed release of `models.json`, `links.json` and `system_prompt_links.json`; the only file current builds download |
 | `config_signing_public_key.pem` | Publisher public key, for reference only; Ohmic trusts the copy built into the app |
-| `models.json` | Model registry, API adapters, defaults, reasoning options, and output limits |
-| `alpha.json` | Alpha build kill switch and minimum version gate |
-| `endpoints.json` | API key validation endpoints and pricing fallback URLs |
-| `links.json` | User-facing browser links |
-| `system_prompt_links.json` | System prompt resource links |
-| `mcp_access.json` | MCP Access client setup templates and compatibility pins |
+| `models.json` | Model registry, API adapters, defaults, reasoning options, and output limits; signer input, also read directly by older builds |
+| `links.json` | User-facing browser links; signer input, also read directly by older builds |
+| `system_prompt_links.json` | System prompt resource links; signer input, also read directly by older builds |
+| `mcp_access.json` | Older builds only: MCP Access client setup templates and compatibility pins. Current builds bundle this setup. Remove once testers run a current build |
+| `skills/ohmic-mcp/SKILL.md` | Older builds only: MCP Access skill instructions. Remove with `mcp_access.json` |
 
 ## How it works
 
