@@ -2,10 +2,15 @@
   "version": 2,
   "providers": {
     "gemini": {
-      "default": "gemini-3.5-flash",
+      "default": "gemini-3.6-flash",
       "signup_url": "https://aistudio.google.com/",
       "api_key_validation": "https://generativelanguage.googleapis.com/v1/models",
       "models": {
+        "gemini-4-argon": {
+          "api": "generate_content",
+          "max_output_tokens": 65536,
+          "reasoning": {"default": "medium", "options": ["low", "medium", "high"]}
+        },
         "gemini-3.1-pro-preview": {
           "api": "generate_content",
           "max_output_tokens": 65536,
@@ -15,16 +20,6 @@
           "api": "generate_content",
           "max_output_tokens": 65536,
           "reasoning": {"default": "medium", "options": ["low", "medium", "high"]}
-        },
-        "gemini-3.7-flash": {
-          "api": "generate_content",
-          "max_output_tokens": 65536,
-          "reasoning": {"default": "medium", "options": ["low", "medium", "high"]}
-        },
-        "gemini-3.5-flash": {
-          "api": "generate_content",
-          "max_output_tokens": 65536,
-          "reasoning": {"default": "medium", "options": ["minimal", "low", "medium", "high"]}
         },
         "gemini-3.6-flash": {
           "api": "generate_content",
@@ -37,11 +32,6 @@
           "reasoning": {"default": "high", "options": ["minimal", "low", "medium", "high"]}
         },
         "gemini-3.5-flash-lite": {
-          "api": "generate_content",
-          "max_output_tokens": 65536,
-          "reasoning": {"default": "minimal", "options": ["minimal", "low", "medium", "high"]}
-        },
-        "gemini-3.1-flash-lite": {
           "api": "generate_content",
           "max_output_tokens": 65536,
           "reasoning": {"default": "minimal", "options": ["minimal", "low", "medium", "high"]}
@@ -60,6 +50,11 @@
         },
         "claude-fable-5": {
           "api": "messages",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "claude-opus-5-5": {
+          "api": "messages_bound_thinking",
           "max_output_tokens": 128000,
           "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
         },
@@ -83,6 +78,11 @@
           "max_output_tokens": 128000,
           "reasoning": {"default": "high", "options": ["low", "medium", "high", "max"]}
         },
+        "claude-sonnet-5-5": {
+          "api": "messages_bound_thinking",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "high", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
         "claude-sonnet-5": {
           "api": "messages",
           "max_output_tokens": 128000,
@@ -93,6 +93,11 @@
           "max_output_tokens": 64000,
           "reasoning": {"default": "high", "options": ["low", "medium", "high", "max"]}
         },
+        "claude-haiku-5-5": {
+          "api": "messages_bound_thinking",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "medium", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
         "claude-haiku-4-5-20251001": {
           "api": "messages",
           "max_output_tokens": 64000
@@ -100,7 +105,7 @@
       }
     },
     "openai": {
-      "default": "gpt-4.1-mini",
+      "default": "gpt-6-luna",
       "signup_url": "https://platform.openai.com/api-keys",
       "api_key_validation": "https://api.openai.com/v1/models",
       "models": {
@@ -108,6 +113,21 @@
           "api": "responses",
           "max_output_tokens": 128000,
           "reasoning": {"default": "low", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "gpt-6.1-sol": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "low", "options": ["low", "medium", "high", "xhigh", "max"]}
+        },
+        "gpt-6.1-terra": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh", "max"]}
+        },
+        "gpt-6-luna": {
+          "api": "responses",
+          "max_output_tokens": 128000,
+          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh", "max"]}
         },
         "gpt-5.6-sol": {
           "api": "responses",
@@ -138,19 +158,6 @@
           "api": "responses",
           "max_output_tokens": 128000,
           "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh"]}
-        },
-        "gpt-5.4-nano": {
-          "api": "responses",
-          "max_output_tokens": 128000,
-          "reasoning": {"default": "none", "options": ["none", "low", "medium", "high", "xhigh"]}
-        },
-        "gpt-4.1": {
-          "api": "responses",
-          "max_output_tokens": 32768
-        },
-        "gpt-4.1-mini": {
-          "api": "responses",
-          "max_output_tokens": 32768
         }
       }
     },
