@@ -28,7 +28,7 @@ Current Ohmic builds read one signed file, `config-release.json`, after startup.
 ## Publishing
 
 1. Edit the source JSON files on `v2`.
-2. From an Ohmic checkout, run `& .\tools\sign_config_release.ps1` and enter the passphrase at the prompt. It signs the next release number and verifies it. Every edit needs a new signed release; Ohmic ignores unsigned changes.
+2. From an Ohmic checkout, run `powershell -ExecutionPolicy Bypass -File .\tools\sign_config_release.ps1` and enter the passphrase at the prompt. It signs the next release number and verifies it. Every edit needs a new signed release; Ohmic ignores unsigned changes.
 3. Commit the edited files and `config-release.json`, and push `v2` without force.
 
 The private key never enters this repository.
